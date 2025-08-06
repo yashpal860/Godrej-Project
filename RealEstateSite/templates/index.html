@@ -1,0 +1,817 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Estate Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <!-- Font Awesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity=""
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+   
+
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container-fluid">
+            <!-- Logo & Title (left-aligned) -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="{% static 'images/main_logo.png' %}" alt="Logo" height="35" class="me-2">
+                <span class="site-title">GODREJ TIARA</span>
+            </a>
+
+            <!-- Toggler for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links (centered slightly using mx-auto) -->
+            <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+                <ul class="navbar-nav custom-nav-links">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Price List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#floor-plan">Floor Plan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#highlights">Highlights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#amenities">Amenities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+   
+    <section class="hero-section">
+        <div class="slider-container">
+            <div class="slider" id="heroSlider">
+                <div class="slide slide-1"></div>
+                <div class="slide slide-2"></div>
+                <div class="slide slide-3"></div>
+            </div>
+        </div>
+
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <div class="left-info">
+
+                    <div class="auth-partner">
+          <img src="{% static 'images/godrej-logo.png' %}" alt="Authorized Partner">
+          <span>Godrej Authorized Partner</span>
+        </div>
+                    <h1 class="project-title">GODREJ TIARA</h1>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> YESHWANTHPUR, BANGALURU</p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check-circle"></i> Status: Under Construction</li>
+                        <li><i class="fas fa-check-circle"></i> Early Bird Offers</li>
+                        <li><i class="fas fa-check-circle"></i> Possession: 2027</li>
+                        <li><i class="fas fa-check-circle"></i> Guaranteed Best Price</li>
+                    </ul>
+                    <div class="price-info">
+                        <div class="price-box">3.33 Cr*<span>Starting Price</span></div>
+                        <div class="price-box">12 Acre<span>Project</span></div>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <h4>Have a Question?</h4>
+                    <form method="post" action="{% url 'submit_contact' %}">
+                        {% csrf_token %}
+                        <input type="text" name="name" placeholder="Your Name *" required>
+                        <input type="email" name="email" placeholder="Your Email *" required>
+                        <input type="tel" name="phone" placeholder="Your Number *" required>
+                        <textarea name="message" placeholder="Message *" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                    <p class="disclaimer">I authorize company representatives to Call, SMS, Email or WhatsApp me.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Overview -->
+    <!-- Overview / About Project Section -->
+    <section class="about-project py-5" id="overview">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="about-title">
+                        ABOUT <span class="highlight">PROJECT</span>
+                    </h2>
+                    <p class="about-text">
+                        Better than what you think, expect, and imagine. A home is what we all need, but the heart and
+                        mind also desire a world around this home that lets us explore, express, and experience the
+                        infinite joys of life.
+                        <br><br>
+                        This happens seamlessly when amenities and landscape are built in sync with each other and blend
+                        with the needs of modern and urban residents. With better design, better specifications, and a
+                        better lifestyle, Yashwin Enchanté ensures to give you the joy of better living!
+                    </p>
+                </div>
+                <div class="col-lg-5 position-relative" data-aos="zoom-in">
+                    <div class="image-wrapper">
+                        <img src="{% static 'images/hero-bg1.jpeg' %}" alt="Apartment View"
+                            class="img-fluid rounded shadow" />
+                        <div class="image-label">APARTMENT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Price List -->
+    <section class="price-section py-5" id="pricing">
+        <div class="container text-center">
+            <h2 class="section-title">Choose Your <span class="highlight">Dream Home</span></h2>
+            <div class="row justify-content-center mt-4">
+                <!-- 1 BHK -->
+                <div class="col-md-4 mb-4">
+                    <div class="price-card">
+                        <h4>1 BHK</h4>
+                        <h5>₹ <span class="price">55 Lacs*</span></h5>
+                        <p>Carpet Area: 650 sq.ft</p>
+                        <p>1 Bedroom, 1 Bathroom</p>
+                        <p>Balcony & Modular Kitchen</p>
+                        <button class="btn btn-enquire" data-bs-toggle="modal" data-bs-target="#enquiryModal">Enquire
+                            Now</button>
+
+                    </div>
+                </div>
+                <!-- 2 BHK -->
+                <div class="col-md-4 mb-4">
+                    <div class="price-card">
+                        <h4>2 BHK</h4>
+                        <h5>₹ <span class="price">75 Lacs*</span></h5>
+                        <p>Carpet Area: 850 sq.ft</p>
+                        <p>2 Bedrooms, 2 Bathrooms</p>
+                        <p>Balcony & Kitchen</p>
+                        <button class="btn btn-enquire" data-bs-toggle="modal" data-bs-target="#enquiryModal">Enquire
+                            Now</button>
+
+                    </div>
+                </div>
+                <!-- 3 BHK -->
+                <div class="col-md-4 mb-4">
+                    <div class="price-card">
+                        <h4>3 BHK</h4>
+                        <h5>₹ <span class="price">95 Lacs*</span></h5>
+                        <p>Carpet Area: 1150 sq.ft</p>
+                        <p>3 Bedrooms, 3 Bathrooms</p>
+                        <p>Balcony, Kitchen & Store</p>
+                        <button class="btn btn-enquire" data-bs-toggle="modal" data-bs-target="#enquiryModal">Enquire
+                            Now</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Modal -->
+    <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="{% url 'submit_enquiry' %}">
+                    {% csrf_token %}
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="enquiryModalLabel">Enquire Now</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" name="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message (Optional)</label>
+                            <textarea class="form-control" name="message" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- toast msg for sunmission -->
+
+    {% if messages %}
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+        {% for message in messages %}
+        <div class="toast align-items-center text-white bg-success border-0 show" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+                    {{ message }}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+    <!-- Floor Plan -->
+    <section id="floor-plan" class="floor-plan-section py-5">
+        <div class="container text-center">
+            <h2 class="section-heading">Floor <span>Plans</span></h2>
+            <div class="row justify-content-center">
+                <!-- Master Plan -->
+                <div class="col-md-4 mb-4">
+                    <div class="floor-card">
+                        <div class="floor-img-wrapper">
+                            <img src="{% static 'images/hero-bg1.jpeg' %}" alt="Master Plan">
+                            <div class="floor-label">1 BHK</div>
+                        </div>
+                        <a href="{% static 'floorplans/brochure.pdf' %}" download class="btn btn-dark mt-3">Download
+                            Plan</a>
+                    </div>
+                </div>
+
+                <!-- 2 BHK -->
+                <div class="col-md-4 mb-4">
+                    <div class="floor-card">
+                        <div class="floor-img-wrapper">
+                            <img src="{% static 'images/hero-bg1.jpeg' %}" alt="2 BHK">
+                            <div class="floor-label">2 BHK</div>
+                        </div>
+                        <a href="{% static 'floorplans/floor-2bhk.pdf' %}" download class="btn btn-dark mt-3">Download
+                            Plan</a>
+                    </div>
+                </div>
+
+                <!-- 3 BHK -->
+                <div class="col-md-4 mb-4">
+                    <div class="floor-card">
+                        <div class="floor-img-wrapper">
+                            <img src="{% static 'images/hero-bg1.jpeg' %}" alt="3 BHK">
+                            <div class="floor-label">3 BHK</div>
+                        </div>
+                        <a href="{% static 'floorplans/floor-3bhk.pdf' %}" download class="btn btn-dark mt-3">Download
+                            Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Highlights -->
+    <section id="highlights" class="highlight-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Project Highlights</h2>
+
+            <!-- Highlight 1 -->
+            <div class="row align-items-center mb-5 highlight-row fade-in-left">
+                <div class="col-md-6">
+                    <img src="{% static 'images/hero-bg1.jpeg' %}" alt="Spacious Living"
+                        class="img-fluid rounded highlight-img">
+                </div>
+                <div class="col-md-6">
+                    <h4 class="highlight-heading">Spacious & Elegant Interiors</h4>
+                    <p class="highlight-text">Experience luxurious 1, 2, and 3 BHK apartments designed with modern
+                        aesthetics and open layouts that maximize natural light.</p>
+                </div>
+            </div>
+
+            <!-- Highlight 2 -->
+            <div class="row align-items-center mb-5 flex-md-row-reverse highlight-row fade-in-right">
+                <div class="col-md-6">
+                    <img src="{% static 'images/hero-bg1.jpeg' %}" alt="Security System"
+                        class="img-fluid rounded highlight-img">
+                </div>
+                <div class="col-md-6">
+                    <h4 class="highlight-heading">Advanced Security Systems</h4>
+                    <p class="highlight-text">Equipped with 24/7 surveillance, intercoms, and security guards to ensure
+                        a safe living environment for your family.</p>
+                </div>
+            </div>
+
+            <!-- Highlight 3 -->
+            <div class="row align-items-center mb-5 highlight-row fade-in-left">
+                <div class="col-md-6">
+                    <img src="{% static 'images/hero-bg1.jpeg' %}" alt="Green Spaces"
+                        class="img-fluid rounded highlight-img">
+                </div>
+                <div class="col-md-6">
+                    <h4 class="highlight-heading">Green & Sustainable Living</h4>
+                    <p class="highlight-text">Landscaped gardens, rainwater harvesting, solar-powered lighting and
+                        eco-conscious amenities make your lifestyle sustainable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Amenities -->
+    <section id="amenities" class="amenities-section">
+        <div class="container">
+            <h2 class="section-title">Our Premium <span class="highlight">Amenities</span></h2>
+            <p class="section-subtitle">Carefully crafted for your comfort & luxury</p>
+
+            <div class="row amenities-grid">
+                <div class="col-md-4 col-sm-6 amenity-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box">
+                        <i class="fas fa-water-ladder"></i>
+                        <h4>Swimming Pool</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 amenity-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <i class="fas fa-dumbbell"></i>
+                        <h4>Gym & Fitness</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 amenity-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box">
+                        <i class="fas fa-spa"></i>
+                        <h4>Spa & Sauna</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 amenity-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="icon-box">
+                        <i class="fas fa-child-reaching"></i>
+                        <h4>Kids Play Area</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 amenity-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="icon-box">
+                        <i class="fas fa-car-side"></i>
+                        <h4>Parking Space</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 amenity-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="icon-box">
+                        <i class="fas fa-user-shield"></i>
+                        <h4>24×7 Security</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Location -->
+    <section id="location" class="location-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">📍 Prime Location Advantages</h2>
+            <p class="text-center mb-5 text-muted">Strategically located with easy access to everything you need.</p>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <!-- Google Map -->
+                    <div class="map-container shadow-sm">
+                        <div class="map-container shadow-sm">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4216.085561720686!2d77.53501311093018!3d13.029348513555993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3dbd70ab444f%3A0x4862652fadaebfbb!2sGodrej%20Tiara%2C%20Yeshwanthpur%2C%20Bengaluru!5e1!3m2!1sen!2sin!4v1753421952540!5m2!1sen!2sin"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <!-- Location Highlights -->
+                    <ul class="location-list list-unstyled">
+                        <li><i class="fas fa-school"></i> 1.2 km from Top International School</li>
+                        <li><i class="fas fa-hospital-alt"></i> 800m from City Hospital</li>
+                        <li><i class="fas fa-bus"></i> 500m from Metro & Bus Stop</li>
+                        <li><i class="fas fa-shopping-cart"></i> 1.5 km to Shopping Malls</li>
+                        <li><i class="fas fa-briefcase"></i> 10 mins to Tech Park</li>
+                    </ul>
+
+                    <a href="{% static 'pdf/location-map.pdf' %}" class="btn btn-outline-primary mt-4" download>
+                        <i class="fas fa-map-marked-alt"></i> Download Location Map
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Gallery -->
+    <section id="gallery" class="section bg-light text-center">
+        <div class="container">
+            <h2 class="fw-bold">Gallery</h2>
+            <div class="row">
+                {% for img in gallery_images %}
+                <div class="col-md-4 mb-4">
+                    <img src="{{ img.image.url }}" class="img-fluid rounded shadow-sm" />
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- youtube video section -->
+
+    <section class="video-section py-5" id="video">
+        <div class="container">
+            <div class="section-title text-center mb-5" data-aos="fade-up">
+                <h2 class="video-heading">Project Walkthrough</h2>
+                <p class="video-description">Get a glimpse of the lifestyle, amenities, and location through
+                    our exclusive video walkthrough.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="zoom-in">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/6ijxlMtDENM?si=IvgRAR1Aevv9UoNX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact main html -->
+    <section class="contact-about-section" id="contact">
+        <div class="container">
+            <div class="row align-items-start">
+
+                <!-- About Us -->
+                <div class="col-md-6 about-box" data-aos="fade-right">
+                    <div class="about-icon text-center mb-3">
+                        <img src="{% static 'images/about.png' %}" alt="About Us Icon" class="img-fluid"
+                            style="max-width: 120px;">
+                    </div>
+                    <h2 class="section-title">About <span>Us</span></h2>
+                    <p class="about-text">
+                        We are committed to delivering quality real estate services. Our team ensures transparency,
+                        trust, and timely delivery for every client.
+                    </p>
+                    <ul class="about-points">
+                        <li><i class="fas fa-check-circle"></i> Trusted Developers</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 Assistance</li>
+                        <li><i class="fas fa-check-circle"></i> 100% Transparency</li>
+                    </ul>
+                </div>
+
+
+
+                <!-- Contact Form -->
+                <div class="col-md-6 contact-box" data-aos="fade-left">
+                    <h2 class="section-title">Get In <span>Touch</span></h2>
+                    <form method="POST" action="{% url 'submit_contact_us' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="city" placeholder="City" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="4" required
+                                class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- AOS CSS -->
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toastElList = [].slice.call(document.querySelectorAll('.toast'));
+            toastElList.forEach(function (toastEl) {
+                new bootstrap.Toast(toastEl, { delay: 3000 }).show();
+            });
+        });
+    </script>
+
+    <!-- highlight script -->
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+
+        document.querySelectorAll('.highlight-row').forEach(row => {
+            observer.observe(row);
+        });
+    </script>
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- // Scroll animation for .fade-up elements for price list -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-up');
+
+            const scrollAnim = () => {
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            };
+
+            scrollAnim();
+            window.addEventListener('scroll', scrollAnim);
+        });
+
+
+    </script>
+
+    <!-- for aminite -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+
+
+
+
+<!-- Auto Popup Modal -->
+<div id="popupModal" class="enquiry-modal">
+  <div class="enquiry-modal-content">
+    <!-- Close button -->
+    <span class="modal-close-btn" onclick="closeModal()">&times;</span>
+
+    <!-- Left Image -->
+    <div class="modal-left">
+      <img src="{% static 'images/popup-image.jpeg' %}" alt="Promo" />
+    </div>
+
+    <!-- Right Form -->
+    <div class="modal-right">
+      <h3>GODREJ TIARA</h3>
+      <form id="popupEnquiryForm" method="POST" action="{% url 'submit_contact' %}">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name *" required>
+        <input type="email" name="email" placeholder="Your Email *" required>
+        <input type="tel" name="phone" placeholder="Your Number *" required>
+        <textarea name="message" placeholder="Message *" required></textarea>
+        <button type="submit">SEND MESSAGE</button>
+        <label class="consent">
+          <input type="checkbox" checked>
+          I authorize contact via Call, SMS, Email or WhatsApp.
+        </label>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+    <!-- youtube script -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+    <!-- brochures script-->
+
+    <!-- 🌟 Floating Button -->
+<button class="floating-brochure-btn btn-gradient" onclick="showFormb()">Download Brochure</button>
+
+<!-- 🌟 Modal -->
+<div id="formModalb" class="custom-modal">
+  <div class="custom-modal-content">
+    <span class="close-btn" onclick="closeModalb()">&times;</span>
+    <h3 class="modal-title">Get the Brochure</h3>
+    <form id="brochureForm" class="brochure-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="text" name="city" placeholder="Your City" required />
+      <textarea name="message" placeholder="Message (Optional)"></textarea>
+      <button type="submit" class="btn btn-gradient submit-btn">Submit & Download</button>
+    </form>
+    <p id="successMessage" style="display: none; color: green; text-align: center; margin-top: 10px;">
+      ✔️ Submitted successfully!
+    </p>
+  </div>
+</div>
+
+
+<script>
+  function showFormb() {
+    document.getElementById("formModalb").style.display = "flex";
+  }
+
+  function closeModalb() {
+    document.getElementById("formModalb").style.display = "none";
+    document.getElementById("successMessage").style.display = "none";
+    document.getElementById("brochureForm").reset();
+  }
+
+  // Close modal on outside click
+  window.onclick = function (event) {
+    const modal = document.getElementById("formModalb");
+    if (event.target === modal) {
+      closeModalb();
+    }
+  };
+  
+// Handle form submit
+document.getElementById("brochureForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("{% url 'save_brochure' %}", {
+    method: "POST",
+    headers: {
+      'X-CSRFToken': '{{ csrf_token }}'
+    },
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+    document.getElementById("successMessage").style.display = "block";
+      closeModalb("formModalb");
+
+      const a = document.createElement("a");
+      a.href = "{% static 'brochures/Brochure.pdf' %}";
+      a.download = "Brochure.pdf";
+      a.click();
+
+      form.reset();
+    } else {
+      alert("Something went wrong!");
+    }
+  });
+});
+</script>
+
+
+<!-- auto pop up script -->
+
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+      document.getElementById("popupModal").style.display = "flex";
+    }, 1000);
+  });
+
+  function closeModal() {
+    document.getElementById("popupModal").style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    const modal = document.getElementById("popupModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+
+<!-- Footer Start -->
+
+
+<footer class="custom-footer bg-dark text-light py-5">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
+      <!-- About Project -->
+      <div class="col-md-3">
+        <h5 class="text-warning">GODREJ TIARA</h5>
+        <p class="small">Luxury living spaces that redefine comfort and elegance. Designed for those who seek excellence.</p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-3">
+        <h5 class="text-warning">CONTACT US</h5>
+        <p class="small mb-1"><i class="fas fa-envelope me-2"></i>info@godrejtiara.com</p>
+        <p class="small mb-1"><i class="fas fa-phone me-2"></i>+91 98765 43210</p>
+        <p class="small"><i class="fas fa-map-marker-alt me-2"></i>Hinjewadi Phase 1, Pune, India</p>
+      </div>
+
+      <!-- Project Info -->
+      <div class="col-md-3">
+        <h5 class="text-warning">PROJECT INFO</h5>
+        <ul class="list-unstyled small">
+          <li><strong>RERA No:</strong> P52100012345</li>
+          <li><strong>Type:</strong> 2 & 3 BHK Premium Residences</li>
+          <li><strong>Status:</strong> Under Construction</li>
+          <li><strong>Possession:</strong> Dec 2026</li>
+        </ul>
+      </div>
+
+      <!-- Logo & Social -->
+      <div class="col-md-3 text-md-end text-center">
+        <div class="footer-logo mb-2">
+          <img src="{% static 'images/godrej-logo.png' %}" alt="Godrej Logo" class="img-fluid small-logo">
+        </div>
+        <p class="small text-muted mb-2">Godrej Authorized Partner</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f text-warning me-3"></i></a>
+          <a href="#"><i class="fab fa-instagram text-warning me-3"></i></a>
+          <a href="#"><i class="fab fa-youtube text-warning me-3"></i></a>
+          <a href="#"><i class="fab fa-whatsapp text-warning"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="bg-secondary mt-5">
+    <p class="text-center small text-muted mb-0">© 2025 Godrej Tiara. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+<!-- Font Awesome CDN (for social icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+<script>
+  const scrollBtn = document.getElementById("scrollToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+
+</body>
+
+</html>
